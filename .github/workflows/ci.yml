@@ -20,18 +20,16 @@ jobs:
       run:
         shell: bash
         working-directory: ./
+        node-version: 20  # Указываем Node.js 20 здесь
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          node-version: 20
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-          node-version: 20
 
       - name: Install dependencies
         run: |
