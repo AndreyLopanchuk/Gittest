@@ -1,6 +1,8 @@
 """ старт сервера:  uvicorn main:app --reload """
-######
+
 from typing import List, Tuple
+
+from fastapi import FastAPI
 
 import models
 import schemas
@@ -12,7 +14,6 @@ from database import (
     init_db,
     session,
 )
-from fastapi import FastAPI
 
 app = FastAPI()
 

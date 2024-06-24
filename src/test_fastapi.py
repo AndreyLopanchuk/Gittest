@@ -2,8 +2,9 @@
         старт тестов: pytest test_fastapi.py """
 
 import pytest
-from database import init_db
 from httpx import ASGITransport, AsyncClient
+
+from database import init_db
 from main import app
 
 new_recipe_data = {

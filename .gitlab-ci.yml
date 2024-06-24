@@ -4,7 +4,7 @@ workflow:
   rules:
     - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
 
-image: python:3.7
+image: python:3.10
 
 
 stages:
@@ -33,7 +33,7 @@ black:
 isort:
   stage: test
   script:
-    - isort --check-only src/
+    - isort --check-only --profile black src/
 
 flask8:
   stage: test

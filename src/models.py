@@ -1,5 +1,5 @@
 from sqlalchemy import Column, ForeignKey, Integer, String
-from sqlalchemy.orm import declarative_base, relationship
+from sqlalchemy.orm import Mapped, declarative_base, relationship
 
 Base = declarative_base()
 
@@ -24,7 +24,9 @@ class Recipe(Base):
     cooking_time_minutes = Column(Integer, comment="Время приготовления в минутах")
     number_of_views = Column(Integer, default=0)
 
-    ingredients = relationship("RecipeIngredient", back_populates="recipe")
+    ingredients: Mapped[list["RecipeIngredient"]] = relationship(
+        "RecipeIngredient", back_populates="recipe"
+    )
 
 
 class RecipeIngredient(Base):
@@ -44,4 +46,4 @@ class RecipeIngredient(Base):
     list_of_ingredients = Column(String, nullable=False)
     text_description = Column(String, nullable=False)
 
-    recipe = relationship("Recipe", back_populates="ingredients")
+    recipe: Mapped["Recipe"] = relationship("Recipe", back_populates="ingredients")
