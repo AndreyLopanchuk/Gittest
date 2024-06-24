@@ -11,3 +11,6 @@ isort==5.9.3
 mypy==0.931
 click==7.1.2
 aiohttp~=3.9.5
+attrs==23.2.0
+async_timeout==4.0.3
+annotated_types==0.7.0
