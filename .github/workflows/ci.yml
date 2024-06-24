@@ -3,7 +3,10 @@ name: Tests and Merge
 on:
   push:
     branches:
-      - master
+      - tests
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
@@ -46,3 +49,16 @@ jobs:
     - name: Run flake8
       run: |
         flake8 src/
+
+    # Шаг слияния в main при успешном прохождении тестов
+    - name: Merge to main
+      if: github.event_name == 'pull_request' && success()
+      uses: actions/checkout@v3
+      with:
+        ref: main
+        token: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git config user.name 'GitHub Actions Bot'
+        git config user.email 'actions@github.com'
+        git merge ${{ github.head_ref }}
+        git push origin main
