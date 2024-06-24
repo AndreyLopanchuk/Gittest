@@ -1,16 +1,13 @@
-name: CI
+name: Tests and Merge
 
 on:
   push:
     branches:
-      - tests
-  pull_request:
-    branches:
-      - tests
+      - master
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: tests
 
     strategy:
       matrix:
