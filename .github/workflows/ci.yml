@@ -56,5 +56,5 @@ jobs:
         run: |
           git config user.name 'GitHub Actions Bot'
           git config user.email 'actions@github.com'
-          git merge ${{ github.head_ref }}
+          git merge origin/tests  # <-- Исправлено
           git push origin main
