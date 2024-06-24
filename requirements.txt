@@ -10,3 +10,4 @@ flake8-pie==0.15.0
 isort==5.9.3
 mypy==0.931
 click==7.1.2
+aiohttp~=3.9.5
