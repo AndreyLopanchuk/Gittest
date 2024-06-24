@@ -23,7 +23,16 @@ jobs:
 
     - name: Install dependencies
       run: |
-        python -m
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run tests
+      run: |
+        pytest tests
+
+    - name: Run black
+      run: |
+        black --diff --check src/
 
 #name: CI
 #
