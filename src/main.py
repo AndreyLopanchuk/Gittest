@@ -79,3 +79,4 @@ async def add_recipe_endpoint(
     )
 
     return "Добавлен новый рецепт:", recipe_out, ingredients_out
+
