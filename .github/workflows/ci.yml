@@ -16,12 +16,6 @@ jobs:
       matrix:
         python-version: ["3.12.4"]
 
-    defaults:
-      run:
-        shell: bash
-        working-directory: ./
-        node-version: 20  # Указываем Node.js 20 здесь
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
