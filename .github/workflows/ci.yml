@@ -32,7 +32,7 @@ jobs:
 
     - name: Run pytest
       run: |
-        pytest -p no:warnings test_fastapi.py
+        pytest -p no:warnings src/test_fastapi.py
 
     - name: Run mypy
       run: |
