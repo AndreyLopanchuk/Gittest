@@ -52,9 +52,9 @@ jobs:
 
       # Шаг слияния в main при успешном прохождении тестов
       - name: Merge to main
-        if: github.event_name == 'pull_request' && success()
+        if: ${{ github.event_name == 'pull_request' && success() }}
         run: |
           git config user.name 'GitHub Actions Bot'
           git config user.email 'actions@github.com'
-          git merge origin/tests  # <-- Исправлено
+          git merge ${{ github.head_ref }}
           git push origin main
