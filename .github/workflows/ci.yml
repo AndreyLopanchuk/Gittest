@@ -59,5 +59,7 @@ jobs:
         run: |
           git config user.name 'GitHub Actions Bot'
           git config user.email 'actions@github.com'
-          git merge origin/tests
+          git checkout main
+          git pull origin main
+          git merge origin/tests 
           git push origin main
