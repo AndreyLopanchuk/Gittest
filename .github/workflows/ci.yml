@@ -18,7 +18,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
-
       - name: Checkout code
         uses: actions/checkout@v3
         with:
@@ -55,7 +54,7 @@ jobs:
           flake8 src/
 
       - name: Merge to main
-        if: github.event_name == 'pull_request' && success()
+        if: ${{ github.event_name == 'pull_request' && success() }}
         run: |
           git config user.name 'GitHub Actions Bot'
           git config user.email 'actions@github.com'
